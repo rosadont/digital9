@@ -21,17 +21,17 @@ state.Boot.prototype = {
 
     update: function(){
 	if(this.input.activePointer.isDown){
-	    this.intro.setText("Be alert for monsters!");
-	    this.time.events.add(Phaser.Timer.SECOND*2,this.startGame,this);
+	    this.intro.setText("Be alert for monsters and obstacles!");
+	    this.time.events.add(Phaser.Timer.SECOND*3,this.startGame,this);
 	    }
     },
     
     introText: function(){
 
-	this.intro.setText("Get out of the cave! \nGo find the right door! \nDon't get confused with the wrong doors!");
+	this.intro.setText("Get out of the cave! \n\nGo find the right door!");
 	this.time.events.add(Phaser.Timer.SECOND*2,function(){
 	    
-	    this.intro.setText("Click to continue...");}, this);
+	    this.intro.setText("Don't get confused with the wrong doors! \n\nClick to continue...");}, this);
     },
 
     startGame: function(){

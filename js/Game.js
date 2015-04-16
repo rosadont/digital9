@@ -3,17 +3,7 @@ var jumpEnable = false;
 var timer = 0;
 
 state.Game = function (game){
-	this.coin;
-	this.coin2;
-	this.coin3;
-	this.coin4;
-	this.coin5;
-	this.coin6;
-	this.coin7;
-	this.coin8;
-	this.coin9;
-	this.coin10;
-	this.coin11;
+
 };
 
 state.Game.prototype = {
@@ -29,7 +19,10 @@ state.Game.prototype = {
 	this.load.spritesheet('scientist','assets/dude2.png',32, 48);
 	this.load.spritesheet('dude','assets/girl-sprite.png',31, 48);
 	this.load.image('heart','assets/pill.png');
-	this.load.spritesheet('coin','assets/spinningcoin.png',32,32,8);
+	this.load.image('spike', 'assets/spike2.png');
+	this.load.image('spike2', 'assets/spike2.png');
+	this.load.image('spike3', 'assets/spike.png');
+	this.load.image('spike4', 'assets/spike.png');
 
     },
 
@@ -45,6 +38,10 @@ state.Game.prototype = {
 	this.map.addTilesetImage('gate2');
 	this.map.addTilesetImage('gate3');
 	this.map.addTilesetImage('gate4');
+	this.map.addTilesetImage('spike');
+	this.map.addTilesetImage('spike2');
+	this.map.addTilesetImage('spike3');
+	this.map.addTilesetImage('spike4');
 	this.layer = this.map.createLayer('ground');
 	this.enemyBounds = this.map.createLayer('enemyBounds');
 	this.enemyBounds.alpha = 0; //Make the ice cubes invisible
@@ -64,7 +61,7 @@ state.Game.prototype = {
 	this.gates.enableBody = true;
 	
 	this.gates2 = this.add.group();
-	this.gate2 = this.gates2.create(2600,this.world.height-440,'gate2');
+	this.gate2 = this.gates2.create(2500,this.world.height-400,'gate2');
 	this.physics.arcade.enable(this.gate2);
 	this.gates2.enableBody = true;
 	
@@ -79,9 +76,29 @@ state.Game.prototype = {
 	this.gates3.enableBody = true;
 	
 	this.gates4 = this.add.group();
-	this.gate4 = this.gates4.create(1300,this.world.height-540,'gate4');
+	this.gate4 = this.gates4.create(1300,this.world.height-545,'gate4');
 	this.physics.arcade.enable(this.gate4);
 	this.gates4.enableBody = true;
+	
+	this.spikes = this.add.group();
+	this.spike = this.spikes.create(1050,this.world.height-545,'spike');
+	this.physics.arcade.enable(this.spike);
+	this.spikes.enableBody = true;	
+	
+	this.spikes2 = this.add.group();
+	this.spike2 = this.spikes2.create(1000,this.world.height-980,'spike2');
+	this.physics.arcade.enable(this.spike2);
+	this.spikes2.enableBody = true;	
+	
+	this.spikes3 = this.add.group();
+	this.spike3 = this.spikes3.create(900,this.world.height-600,'spike3');
+	this.physics.arcade.enable(this.spike3);
+	this.spikes3.enableBody = true;
+	
+	this.spikes4 = this.add.group();
+	this.spike4 = this.spikes4.create(1050,this.world.height-545,'spike4');
+	this.physics.arcade.enable(this.spike4);
+	this.spikes4.enableBody = true;
 	
 	this.enemies = this.add.group();
 	this.createEnemy();
@@ -109,7 +126,7 @@ state.Game.prototype = {
 	this.time.events.loop(Phaser.Timer.SECOND*2, function(){this.jumpEnable = true;},this);
 	
 	//Loop the ALert text
-	this.alertText = this.add.text(this.camera.width/2, this.camera.height/2, "ALERT!",{fontSize:'36px', fill: '#FFF'});
+	this.alertText = this.add.text(this.camera.width/2, this.camera.height/2, "Be Caution!",{fontSize:'36px', fill: '#FFF'});
 	this.alertText.anchor.setTo(0.5,0.5);
 	this.alertText.fixedToCamera = true;
 	this.alertText.visible = false;
@@ -123,48 +140,6 @@ state.Game.prototype = {
 
 	//The health value that will resize the health bar throughout game
 	this.healthVal = this.healthBar.width;
-	
-	this.coin = this.game.add.sprite(425,60,'coin');
-	this.game.physics.arcade.enable(this.coin);
-	this.coin.body.allowGravity = false;
-	this.coin.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin.animations.play('spin');
-
-	this.coin3 = this.game.add.sprite(1250,60,'coin');
-	this.game.physics.arcade.enable(this.coin3);
-	this.coin3.body.allowGravity = false;
-	this.coin3.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin3.animations.play('spin');
-
-	this.coin2 = this.game.add.sprite(1250,200,'coin');
-	this.game.physics.arcade.enable(this.coin2);
-	this.coin2.body.allowGravity = false;
-	this.coin2.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin2.animations.play('spin');
-
-	this.coin4 = this.game.add.sprite(1250,350,'coin');
-	this.game.physics.arcade.enable(this.coin4);
-	this.coin4.body.allowGravity = false;
-	this.coin4.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin4.animations.play('spin');
-
-	this.coin5 = this.game.add.sprite(350,250,'coin');
-	this.game.physics.arcade.enable(this.coin5);
-	this.coin5.body.allowGravity = false;
-	this.coin5.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin5.animations.play('spin');
-
-	this.coin6 = this.game.add.sprite(40,545,'coin');
-	this.game.physics.arcade.enable(this.coin6);
-	this.coin6.body.allowGravity = false;
-	this.coin6.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin6.animations.play('spin');
-
-	this.coin7 = this.game.add.sprite(445,545,'coin');
-	this.game.physics.arcade.enable(this.coin7);
-	this.coin7.body.allowGravity = false;
-	this.coin7.animations.add('spin',[0,1,2,3,4,5,6,7],8,true);
-	this.coin7.animations.play('spin');
 
     },
 
@@ -177,6 +152,13 @@ state.Game.prototype = {
 	this.physics.arcade.collide(this.player, this.enemies, this.enemyHurt,null,this);
 	this.physics.arcade.overlap(this.player, this.hearts, this.collectHeart,null,this);
 	this.physics.arcade.overlap(this.player, this.gates, this.endGame,null,this);
+	this.physics.arcade.overlap(this.player, this.gates2, this.doorHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.gates3, this.doorHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.gates4, this.doorHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.spikes, this.spikeHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.spikes2, this.spikeHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.spikes3, this.spikeHurt,null,this);
+	this.physics.arcade.overlap(this.player, this.spikes4, this.spikeHurt,null,this);
 
 	//Stop the player from moving when no keys are pressed
 	this.player.body.velocity.x = 0;
@@ -214,14 +196,6 @@ state.Game.prototype = {
 	    timer -= 5000;
 	    this.alertText.visible = !(this.alertText.visible);
 	    }
-		
-	this.game.physics.arcade.overlap(this.dude,this.coin,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin2,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin3,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin4,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin5,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin6,this.scoreone,null,this);
-	this.game.physics.arcade.overlap(this.dude,this.coin7,this.scoreone,null,this);	
     },
     
     createEnemy: function(){
@@ -254,6 +228,66 @@ state.Game.prototype = {
     },
     
     enemyHurt: function(player, enemies){
+	this.player.x = this.player.x - 5;
+	this.player.y = this.player.y - 10
+
+	if(this.healthVal > 0){
+	    this.healthVal -= 9;
+	    this.updateHealthBar(this.healthVal);
+	}
+	if(this.healthVal <= 0){
+	    player.kill();
+	    this.state.restart('Game'); //Does this work?
+	}
+	
+    },    
+	
+	spikeHurt: function(player, spikes){
+	this.player.x = this.player.x - 5;
+	this.player.y = this.player.y - 10
+
+	if(this.healthVal > 0){
+	    this.healthVal -= 9;
+	    this.updateHealthBar(this.healthVal);
+	}
+	if(this.healthVal <= 0){
+	    player.kill();
+	    this.state.restart('Game'); //Does this work?
+	}
+	
+    },	
+	
+	doorHurt: function(player, gates2){
+	this.player.x = this.player.x - 5;
+	this.player.y = this.player.y - 10
+
+	if(this.healthVal > 0){
+	    this.healthVal -= 9;
+	    this.updateHealthBar(this.healthVal);
+	}
+	if(this.healthVal <= 0){
+	    player.kill();
+	    this.state.restart('Game'); //Does this work?
+	}
+	
+    },	
+	
+	doorHurt: function(player, gates3){
+	this.player.x = this.player.x - 5;
+	this.player.y = this.player.y - 10
+
+	if(this.healthVal > 0){
+	    this.healthVal -= 9;
+	    this.updateHealthBar(this.healthVal);
+	}
+	if(this.healthVal <= 0){
+	    player.kill();
+	    this.state.restart('Game'); //Does this work?
+	}
+	
+    },	
+	
+	doorHurt: function(player, gates4){
 	this.player.x = this.player.x - 5;
 	this.player.y = this.player.y - 10
 
@@ -322,9 +356,5 @@ state.Game.prototype = {
 	this.state.start('Credits');
     },
 	
-	scoreone: function(body1,body2){
-	body2.kill();
-	score++;
-},
 
 }
