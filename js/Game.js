@@ -86,12 +86,12 @@ state.Game.prototype = {
 	this.spikes.enableBody = true;	
 	
 	this.spikes2 = this.add.group();
-	this.spike2 = this.spikes2.create(1000,this.world.height-980,'spike2');
+	this.spike2 = this.spikes2.create(1000,this.world.height-900,'spike2');
 	this.physics.arcade.enable(this.spike2);
 	this.spikes2.enableBody = true;	
 	
 	this.spikes3 = this.add.group();
-	this.spike3 = this.spikes3.create(900,this.world.height-600,'spike3');
+	this.spike3 = this.spikes3.create(80,this.world.height-530,'spike3');
 	this.physics.arcade.enable(this.spike3);
 	this.spikes3.enableBody = true;
 	

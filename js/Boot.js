@@ -31,7 +31,7 @@ state.Boot.prototype = {
 	this.intro.setText("Get out of the cave! \n\nGo find the right door!");
 	this.time.events.add(Phaser.Timer.SECOND*2,function(){
 	    
-	    this.intro.setText("Don't get confused with the wrong doors! \n\nClick to continue...");}, this);
+	    this.intro.setText("Don't get confused with the wrong doors! \nIt can hurt you!\n\nClick to continue...");}, this);
     },
 
     startGame: function(){
