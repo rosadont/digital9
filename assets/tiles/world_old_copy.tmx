@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="49" tileheight="48" nextobjectid="3">
+ <tileset firstgid="1" name="tiles" tilewidth="49" tileheight="48">
+  <image source="tiles.png" trans="ffffff" width="224" height="96"/>
+ </tileset>
+ <tileset firstgid="9" name="gate" tilewidth="64" tileheight="64">
+  <image source="gate.png" trans="ffffff" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="10" name="tiles3" tilewidth="49" tileheight="48">
+  <image source="tiles3.png" trans="ffffff" width="560" height="640"/>
+ </tileset>
+ <layer name="ground" width="60" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztWNuuxCAItA/9/1/epyaGDAgjqD09k5i1btEZAS+9W2v3x8pX8K+3pv8dsbojnq8J2xleyHa13qvF5pzlZfW3Qq/UXAXP/K32b5VeT8zs8m/2OuK1/Qv+jfB/e/4y/N/qXyYnmPm5yNLbj3hb/3tsNLB6WSD/MrH4Br3I1w8HL3bojcKK7YeDFyf41+LAcJtdHyxkxnPm+bcK1XqjXKpRsV7doi73EMuu8i7Rc8j0r9Qb4cLkZAQz57HZgvpF2H3+zBgfxTzikO3nnXrRuVGOkx3bu/VKP6O+M3WfEM89D3S3YM8W2ri79Woc2HOWNS8n6EVtGbE70qvNy+iZgSd/M/RqmiM2GTml5a81bhTMfcxaP7S+rbnQ/NrHGAPtO4rGIdIPw0VC23/ZfPLsY887Uf9mwMpfbUz528A7sg0V63zviQ8LWoyO9t/Kot3feo0SI92jmGD2wSyM9PZ1T34hOzSmvBuvAtLb54q1Fsu2/hnVUR/VxaNX42TplnVL72poa5R33eiBdJ6oV35X+lL5AYjwCao=
+  </data>
+ </layer>
+ <objectgroup name="Door">
+  <object id="2" gid="9" x="0" y="1872"/>
+ </objectgroup>
+ <layer name="enemyBounds" width="60" height="40" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztmbkNwCAQBOk/cM1OkXwGy+L+mQb2ZnkCGANOcDnmemTja5frlT3P0ImMvhYzR+oF35wZX4k0iwX46uZ494uvbo63LwAAyHS7n6v57ny6+FbznJHcKvtKVPWNsp+r9vuG1fttlF4jvFdbc9LX8pxGWKduvis8/5g6sfLV7KJbz9r86TPzGmSeHQCe3ExOIUk=
+  </data>
+ </layer>
+</map>
