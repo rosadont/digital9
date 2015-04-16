@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello World!</title>
+<script src="js/phaser.js"></script>
+<script src="js/Boot.js"></script>
+<script src="js/Game.js"></script>
+<script src="js/Credits.js"></script>
+
+<style>
+body
+{
+color: #777;
+font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<div id="game"></div>
+
+<script type="text/javascript">
+  window.onload = function(){
+      var game = new Phaser.Game(800,600, Phaser.CANVAS, 'game');
+      game.state.add('Boot', state.Boot);
+      game.state.add('Game', state.Game);
+      game.state.add('Credits', state.Credits);
+
+      game.state.start('Boot');
+
+  }
+</script>
+
+<div id="readme">
+<h2>Lost!</h2>
+<ul>
+<li><strong>High Concept:</strong>
+ Player seeks a way out of the cave. Must escape successfully before being caught!
+</li>
+<li><strong>Player Experience Goals:</strong>
+  The attempt here is to get a sense of "adventure" by having the player go through the maze.
+</li>
+<li><strong>Genre:</strong>
+  Platformer type of game 
+</li>
+<li><strong>Game play:</strong>
+  Player starts at one end and searches for the door on the other door.
+  Use the left and right arrow keys to move back and forth and the up arrow key to jump.
+  Avoid the monsters and collect the pills to rejuvenate the player's health.
+</li>
+<li><strong>Prototype goal:</strong>
+  More game states, and in-depth understanding as to how to use tiled for designing levels and object functionality.
+</li>
+<li><strong>Features:</strong>
+  Cut scenes, music and a slightly improved AI.
+</li>
+<li><strong>Setting/Premise:</strong>
+  Got lost in a cave and the player needs to find their way out.
+</li>
+<li><strong>Story:</strong>
+  Don't get caught by the monsters and find the right door before you get caught.
+</li>
+<li><strong>Target Audience:</strong>
+  Side scrollers and people who prefer ambient games
+</li>
+<li><strong>Play time:</strong>
+  Possibly up to 5-10 minutes
+</li>
+<li><strong>Strategies:</strong>
+  Being dodgy, in other words making use of platforms and dodging opponents as they come
+</li>
+<li><strong>Prototype Assets:</strong>
+  Most came from the generic phaser resources but the artwork comes straight from opengameart, background Library and the music was by Michael Jackson's Thriller and the sprite for the main character came from SpriteDatabase but a random user, the name is "George"
+</li>
+<li><strong>Prototype Closest Other Game:</strong>
+  Starstruck is perhaps the closest one to this game. Thats about it.
+</li>
+</ul>
+</div>
+</body>
+</html>
